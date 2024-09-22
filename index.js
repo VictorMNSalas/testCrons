@@ -9,7 +9,7 @@ const data = {
     },
 }
 
-let count = 1
+let count = 0
 let date = new Date()
 const cron = require('node-cron');
 const nodemailer = require('nodemailer');
@@ -93,7 +93,7 @@ const enviarCorreo = () => {
 };
 
 // Programa la tarea para ejecutarse cada hora
-cron.schedule('0 * * * * *', () => {
+cron.schedule('*/3 * * * * *', () => {
     console.log('Enviando correo...');
     count = count + 1
     enviarCorreo();
