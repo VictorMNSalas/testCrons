@@ -100,11 +100,9 @@ const enviarCorreo = (cronId) => {
   }
 };
 
-// Programa la tarea para ejecutarse cada 14 minutos
-cron.schedule("*/10 * * * *", () => {
-  console.log("Enviando correo...");
-  count = count + 1;
-  enviarCorreo("main");
+// Programa la tarea para ejecutarse cada 1 minutos
+cron.schedule("*/1 * * * *", () => {
+  console.log("Cron programada por minutos...");
 });
 
 // Endpoint para crear nuevos crons dinámicamente
