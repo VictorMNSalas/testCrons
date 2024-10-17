@@ -9,7 +9,7 @@ const data = {
 };
 
 let count = 0;
-let date = new Date();
+
 const cron = require("node-cron");
 const nodemailer = require("nodemailer");
 const express = require("express");
@@ -25,6 +25,7 @@ const cronJobs = [];
 // Función para enviar el correo
 const enviarCorreo = (cronId) => {
   try {
+    let date = new Date();
     const mailOptions = {
       from: "ztest3251@gmail.com",
       to: "tabletalcatel169@gmail.com",
@@ -100,7 +101,7 @@ const enviarCorreo = (cronId) => {
 };
 
 // Programa la tarea para ejecutarse cada 14 minutos
-cron.schedule("*/14 * * * *", () => {
+cron.schedule("*/10 * * * *", () => {
   console.log("Enviando correo...");
   count = count + 1;
   enviarCorreo("main");
